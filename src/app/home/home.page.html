@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      ANIMAL LIST
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+
+<div class="seeanimal">
+  <button (click) = "runHttp()" class="buttons">see available animals</button> <br>
+</div>
+
+
+
+<div>
+  <ul class="lista">
+    <button (click) = "sort('id')" class="buttons2">id</button>
+    <button (click) = "sort('price')"class="buttons2">price</button>
+    <button (click) = "sort('type')"class="buttons2">type</button>
+  </ul>
+</div>
+
+
+
+
+<ion-card>
+  <ion-list *ngFor="let animal of animal | orderBy: key: reverse">
+    <ion-item>
+      <h1>{{animal.id}} </h1> &nbsp; - &nbsp; <h2>{{animal.type}}</h2> &nbsp; - &nbsp; <h3>{{animal.price}}</h3>
+    </ion-item>
+  </ion-list>
+</ion-card>
+</ion-content>
